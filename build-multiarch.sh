@@ -2,6 +2,9 @@
 set -e
 set -x
 
+echo $NAME
+echo $VERSION
+
 for arch in $ARCHS; do
     docker pull $NAME:$VERSION-${arch}
 

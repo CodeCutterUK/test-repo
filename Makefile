@@ -8,12 +8,12 @@ else
 	NAME ?= phusion/baseimage
 endif
 ifdef TAG_ARCH
-	# VERSION_ARG = $(VERSION)-$(subst /,-,$(subst :,-,${BASE_IMAGE}))-$(TAG_ARCH)
-	VERSION_ARG = $(VERSION)-$(TAG_ARCH)
+	VERSION_ARG = $(VERSION)-$(subst /,-,$(subst :,-,${BASE_IMAGE_VERSION}))-$(TAG_ARCH)
+	# VERSION_ARG = $(VERSION)-$(TAG_ARCH)
 	LATEST_VERSION = latest-$(TAG_ARCH)
 else
-	# VERSION_ARG = $(VERSION)-$(subst /,-,$(subst :,-,${BASE_IMAGE}))
-	VERSION_ARG = $(VERSION)
+	VERSION_ARG = $(VERSION)-$(subst /,-,$(subst :,-,${BASE_IMAGE_VERSION}))
+	# VERSION_ARG = $(VERSION)
 	LATEST_VERSION = latest
 endif
 VERSION_ARG ?= $(VERSION)
