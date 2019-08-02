@@ -25,8 +25,9 @@ env:
     - BASE_IMAGE_VERSION=18.04 PLATFORM=arm64 QEMU_ARCH=aarch64 TAG_ARCH=arm64
     - BASE_IMAGE_VERSION=18.04 PLATFORM=arm   QEMU_ARCH=arm     TAG_ARCH=arm
 
-    - BASE_IMAGE_VERSION=cosmic-20190311 PLATFORM=amd64 QEMU_ARCH=amd64   TAG_ARCH=amd64
-    - BASE_IMAGE_VERSION=cosmic-20190311 PLATFORM=arm64 QEMU_ARCH=aarch64 TAG_ARCH=arm64
+    - BASE_IMAGE_VERSION=cosmic-20190719 PLATFORM=amd64 QEMU_ARCH=amd64   TAG_ARCH=amd64
+    - BASE_IMAGE_VERSION=cosmic-20190719 PLATFORM=arm64 QEMU_ARCH=aarch64 TAG_ARCH=arm64
+    - BASE_IMAGE_VERSION=cosmic-20190719 PLATFORM=arm QEMU_ARCH=arm TAG_ARCH=arm
 
 stage: Compile
 
@@ -51,4 +52,4 @@ jobs:
         - echo $NAME:$VERSION_TAG
         - echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
         - make build_multiarch BASE_IMAGE_VERSION=18.04 ARCHS="amd64 arm64 arm"
-        - make build_multiarch BASE_IMAGE_VERSION=cosmic-20190311 ARCHS="amd64 arm64"
+        - make build_multiarch BASE_IMAGE_VERSION=cosmic-20190719 ARCHS="amd64 arm64 arm"
